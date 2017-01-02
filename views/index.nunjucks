@@ -1,0 +1,4 @@
+{% extends "parent.nunjucks" %}
+{% block content %}
+<a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+{% endblock %}

@@ -1,0 +1,4 @@
+{% extends "parent.nunjucks" %}
+{% block content %}
+<p>{{message}}</p>
+{% endblock %}

@@ -2,7 +2,11 @@ module.exports = function(app, passport) {
 
     // route for home page
     app.get('/', function(req, res) {
-        res.render('index.jade'); // load the index.ejs file
+        res.render('index');
+    });
+    
+    app.get('/home', function(req, res) {
+        res.render('home');
     });
 
     app.get('/auth/google', passport.authenticate('google', { scope : ['profile'] }));
