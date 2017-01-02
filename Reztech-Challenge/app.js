@@ -4,15 +4,27 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+require('./config/passport.js')(passport);
+var mongoose = require('mongoose');
+var configDB = require('./config/database.js');
+var session = require('express-session');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+require('nunjucks');
+
+mongoose.connect(configDB.url); // connect to our database
+
+
+// Use the GoogleStrategy within Passport.
+//   Strategies in Passport require a `verify` function, which accept
+//   credentials (in this case, an accessToken, refreshToken, and Google
+//   profile), and invoke a callback with a user object.
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'nunjucks');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -22,8 +34,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
+// required for passport
+app.use(session({ secret: 'goreztech' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
+require('./app/routes.js')(app, passport);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
