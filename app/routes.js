@@ -6,9 +6,17 @@ module.exports = function(app, passport) {
     });
     
     app.get('/home', function(req, res) {
-        res.render('home');
+        res.render('home', {
+            user : req.user
+        });
     });
 
+    // route for logging out
+    app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
+    });
+    
     app.get('/auth/google', passport.authenticate('google', { scope : ['profile'] }));
 
     // the callback after google has authenticated the user
