@@ -6,9 +6,13 @@ module.exports = function(app, passport) {
     });
     
     app.get('/home', function(req, res) {
-        res.render('home', {
-            user : req.user
-        });
+        if (req.user){
+            res.render('home', {
+                user : req.user
+            });
+        } else {
+            res.redirect('/');
+        }
     });
 
     // route for logging out
