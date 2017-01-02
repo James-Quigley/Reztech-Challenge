@@ -10,5 +10,13 @@
 {% endblock %}
 
 {% block content %}
-<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=current%20location&destination=place_id:ChIJX1JzgCwJK4cRXiwM8t2sf_0&key=AIzaSyCE5wo8okWT45c9Gfw5dy6Bi0-TSxnls30" allowfullscreen></iframe>
+    <div class="col-md-4">
+        
+    </div>
+    <div class="col-md-4">
+        
+    </div>
+    <div class="col-md-12">
+        <iframe width="100%" height="500" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=current%20location&destination=place_id:ChIJX1JzgCwJK4cRXiwM8t2sf_0&key=AIzaSyCE5wo8okWT45c9Gfw5dy6Bi0-TSxnls30" allowfullscreen></iframe>
+    </div>
 {% endblock %}
