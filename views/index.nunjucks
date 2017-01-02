@@ -10,9 +10,3 @@ onmouseout="this.src='/images/btn_google_signin_dark_normal_web.png'" onclick="t
     <h1>Google Dashboard</h1>
     <p>Simple dashboard showing basic Google services, using Google's API.</p>
 {% endblock %}
-
-
-<script>
-    var signIn = document.getElementById("signIn");
-    
-</script>
