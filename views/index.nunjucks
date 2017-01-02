@@ -1,4 +1,18 @@
 {% extends "parent.nunjucks" %}
-{% block content %}
-<a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+
+{% block login %}
+    <a href="/auth/google"><img height="34" id="signIn" src="/images/btn_google_signin_dark_normal_web.png" 
+onmouseover="this.src='/images/btn_google_signin_dark_focus_web.png'"
+onmouseout="this.src='/images/btn_google_signin_dark_normal_web.png'" onclick="this.src='/images/btn_google_signin_dark_pressed_web.png'" alt="Sign in with Google"></a>
 {% endblock %}
+
+{% block jumbotron %}
+    <h1>Google Dashboard</h1>
+    <p>Simple dashboard showing basic Google services, using Google's API.</p>
+{% endblock %}
+
+
+<script>
+    var signIn = document.getElementById("signIn");
+    
+</script>
