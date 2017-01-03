@@ -1,14 +1,27 @@
-module.exports = function(app, passport) {
+module.exports = function (app, passport) {
 
     // route for home page
-    app.get('/', function(req, res) {
+    app.get('/', function (req, res) {
         res.render('index');
     });
-    
-    app.get('/home', function(req, res) {
-        if (req.user){
+
+    app.get('/home', function (req, res) {
+        if (req.user) {
+
+            var Gmail = require('node-gmail-api'),
+                gmail = new Gmail(req.user.google.token),
+                s = gmail.messages('label:inbox', {
+                    fields: ['id', 'internalDate', 'labelIds', 'payload']
+                });
+
+            s.on('data', function (d) {
+                    console.log(d.id)
+                });
+                //Get gmail data
+                //Get calendar data
+
             res.render('home', {
-                user : req.user
+                user: req.user,
             });
         } else {
             res.redirect('/');
@@ -16,19 +29,21 @@ module.exports = function(app, passport) {
     });
 
     // route for logging out
-    app.get('/logout', function(req, res) {
+    app.get('/logout', function (req, res) {
         req.logout();
         res.redirect('/');
     });
-    
-    app.get('/auth/google', passport.authenticate('google', { scope : ['profile'] }));
+
+    app.get('/auth/google', passport.authenticate('google', {
+        scope: ['profile', 'https://www.googleapis.com/auth/gmail.readonly']
+    }));
 
     // the callback after google has authenticated the user
     app.get('/auth/google/callback',
-            passport.authenticate('google', {
-                    successRedirect : '/home',
-                    failureRedirect : '/'
-            }));
+        passport.authenticate('google', {
+            successRedirect: '/home',
+            failureRedirect: '/'
+        }));
 
 };
 
