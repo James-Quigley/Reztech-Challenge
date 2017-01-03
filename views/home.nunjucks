@@ -10,10 +10,10 @@
 {% endblock %}
 
 {% block content %}
-    <div class="col-md-4">
-        
+    <div class="col-md-6">
+        {{labels}}
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         
     </div>
     <div class="col-md-12">
