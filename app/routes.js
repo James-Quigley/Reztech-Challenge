@@ -7,19 +7,6 @@ module.exports = function (app, passport) {
 
     app.get('/home', function (req, res) {
         if (req.user) {
-
-            var Gmail = require('node-gmail-api'),
-                gmail = new Gmail(req.user.google.token),
-                s = gmail.messages('label:inbox', {
-                    fields: ['id', 'internalDate', 'labelIds', 'payload']
-                });
-
-            s.on('data', function (d) {
-                    console.log(d.id)
-                });
-                //Get gmail data
-                //Get calendar data
-
             res.render('home', {
                 user: req.user,
             });
