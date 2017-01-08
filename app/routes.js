@@ -1,3 +1,7 @@
+var configAuth = require('../config/auth');
+var request = require('request');
+
+
 module.exports = function (app, passport) {
 
     // route for home page
@@ -22,7 +26,8 @@ module.exports = function (app, passport) {
     });
 
     app.get('/auth/google', passport.authenticate('google', {
-        scope: ['profile', 'https://www.googleapis.com/auth/gmail.readonly']
+        scope: ['profile', 'email'],
+        prompt: 'consent'
     }));
 
     // the callback after google has authenticated the user
@@ -32,6 +37,21 @@ module.exports = function (app, passport) {
             failureRedirect: '/'
         }));
 
+    app.get('/shorten/:longUrl', function (req, res) {
+        request.post(
+            "https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyCE5wo8okWT45c9Gfw5dy6Bi0-TSxnls30", {
+                json: {
+                    longUrl: req.params.longUrl
+                }
+            },
+            function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    console.log(body);
+                    res.json(body);
+                }
+            }
+        );
+    });
 };
 
 // route middleware to make sure a user is logged in
