@@ -52,6 +52,23 @@ module.exports = function (app, passport) {
             }
         );
     });
+    
+    app.get('/translate/:targetLang/:inputString', function (req, res) {
+        
+        request.get(
+            "https://translation.googleapis.com/language/translate/v2?q="
+            + req.params.inputString
+            + "&target="
+            + req.params.targetLang
+            + "&key=AIzaSyCE5wo8okWT45c9Gfw5dy6Bi0-TSxnls30",
+            function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    console.log(body);
+                    res.json(body);
+                }
+            }
+        );
+    });
 };
 
 // route middleware to make sure a user is logged in
