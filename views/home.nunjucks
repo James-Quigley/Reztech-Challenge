@@ -10,13 +10,36 @@
 {% endblock %}
 
 {% block content %}
-    <div class="col-md-6">
-        {{labels}}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="col-md-12">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                    <button id="shorten" class="btn btn-default" type="button">Shorten!</button>
+                  </span>
+                    <input type="text" id="longUrl" class="form-control" placeholder="www.reallysuperlongexampleurl.com">
+                </div>
+                <!-- /input-group -->
+            </div>
+            <div class="col-md-12">
+                <h3>
+                    <a href="" id="shortUrlLink"><span id="shortUrl" class="label label-success"></span></a>
+                </h3>
+            </div>
+        </div>
     </div>
+    <!-- /.row -->
     <div class="col-md-6">
         
     </div>
     <div class="col-md-12">
         <iframe width="100%" height="500" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=current%20location&destination=place_id:ChIJX1JzgCwJK4cRXiwM8t2sf_0&key=AIzaSyCE5wo8okWT45c9Gfw5dy6Bi0-TSxnls30" allowfullscreen></iframe>
     </div>
+    
+    <script src="/js/home.js"></script>
+{% endblock %}
+
+
+{% block scripts %}
+<script src="/js/home.js"></script>
 {% endblock %}
