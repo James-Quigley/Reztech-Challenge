@@ -27,7 +27,7 @@ module.exports = function (app, passport) {
 
     app.get('/auth/google', passport.authenticate('google', {
         scope: ['profile', 'email'],
-        prompt: 'consent'
+        prompt: 'select_account'
     }));
 
     // the callback after google has authenticated the user
