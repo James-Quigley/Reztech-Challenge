@@ -16,10 +16,10 @@ A two page web application using the ME(a)N stack created to demonstrate Google'
 ## Screenshots
 
 Login Page:
-![Login Page](http://puu.sh/tfReW/47cf63a952.png)
+![Login Page](http://puu.sh/tfTCG/3c329bf809.png)
 
 Dashboard:
-![Dashboard](http://puu.sh/tfTaO/d1f8e3b281.png)
+![Dashboard](http://puu.sh/tfTFi/954396ea78.png)
 
 ## Technologies Used
 
