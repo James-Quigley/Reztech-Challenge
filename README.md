@@ -13,6 +13,13 @@ A two page web application using the ME(a)N stack created to demonstrate Google'
 6. 'npm start'
 7. Open a browser and go to 'localhost:3000'
 
+## Screenshots
+
+Login Page:
+![Login Page](http://puu.sh/tfReW/47cf63a952.png)
+
+Dashboard:
+![Dashboard](http://puu.sh/tfTaO/d1f8e3b281.png)
 
 ## Technologies Used
 
