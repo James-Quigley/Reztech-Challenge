@@ -6,40 +6,69 @@
 
 {% block jumbotron %}
     <h1>Welcome, <span>{{user.google.name}}</span></h1>
-    <p></p>
+    <p>Please experiment with the below APIs:</p>
 {% endblock %}
 
 {% block content %}
-    <div class="col-md-6">
-        <div class="col-md-12">
-            <div class="input-group">
-                <span class="input-group-btn">
-                <button id="shorten" class="btn btn-default" type="button">Shorten!</button>
-              </span>
-                <input type="text" id="longUrl" class="form-control" placeholder="www.reallysuperlongexampleurl.com">
-            </div>
-            <!-- /input-group -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Google URL Shortener</h3>
         </div>
-        <div class="col-md-12">
-            <h3>
-                <a href="" id="shortUrlLink"><span id="shortUrl" class="label label-success"></span></a>
-            </h3>
+        <div class="panel-body">
+            <form action="javascript:shortenUrl()">
+                <div class="input-group">
+                    <input type="text" id="longUrl" class="form-control" placeholder="www.reallysuperlongexampleurl.com">
+                    <span class="input-group-btn"><button id="shorten" class="btn btn-primary" type="submit">Shorten!</button></span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <input type="text" id="shortUrl" class="form-control" placeholder="Short URL Here" disabled>
+                    <span class="input-group-btn"><a href="" id="shortUrlLink"><button  class="btn btn-success" type="button">Go</button></a></span>
+                </div>
+                <!-- /input-group -->
+            </form>
         </div>
     </div>
-    <div class="col-md-6">
-        <form action="javascript:translatePhrase()">
-            <div class="input-group">
-                <input type="text" id="source" class="form-control" placeholder="Source text">
-                <select name="langs" id="langs" class="input-group-addon">
-                    <option value="es">Spanish</option>
-                </select>
-                <button id="translate" class="btn btn-default" type="submit">Translate!</button>
-                <input type="text" id="dest" class="form-control" disabled>
-            </div>
-        </form>
+    <div class="panel panel-default">
+       <div class="panel-heading">
+            <h3 class="panel-title">Google Translate</h3>
+        </div>
+        <div class="panel-body">
+            <form action="javascript:translatePhrase()">
+                <div class="input-group">
+                    <input type="text" id="source" class="form-control" placeholder="Enter text to translate">
+                    <span class="input-group-btn"><button id="translate" class="btn btn-primary" type="submit">Translate!</button></span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="langs">Arabic &#x25BC;</button>
+                        <ul class="dropdown-menu">
+                        <li><a href="javascript:setLang('Arabic','ar')">Arabic</a></li>
+                        <li><a href="javascript:setLang('Chinese','zh-CN')">Chinese</a></li>
+                        <li><a href="javascript:setLang('French','fr')">French</a></li>
+                        <li><a href="javascript:setLang('German','de')">German</a></li>
+                        <li><a href="javascript:setLang('Hindi','hi')">Hindi</a></li>
+                        <li><a href="javascript:setLang('Italian','it')">Italian</a></li>
+                        <li><a href="javascript:setLang('Japanese','ja')">Japanese</a></li>
+                        <li><a href="javascript:setLang('Korean','ko')">Korean</a></li>
+                        <li><a href="javascript:setLang('Portuguese','pt')">Portuguese</a></li>
+                        <li><a href="javascript:setLang('Russian','ru')">Russian</a></li>
+                        <li><a href="javascript:setLang('Spanish','es')">Spanish</a></li>
+                    </ul>
+                    </div>
+                    <input type="text" id="dest" class="form-control" placeholder="Please select desired language" disabled>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="col-md-12">
-        <iframe width="100%" height="500" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=current%20location&destination=place_id:ChIJX1JzgCwJK4cRXiwM8t2sf_0&key=AIzaSyCE5wo8okWT45c9Gfw5dy6Bi0-TSxnls30" allowfullscreen></iframe>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Google Maps</h3>
+        </div>
+        <div class="panel-body">
+            <iframe width="100%" height="500" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=current%20location&destination=place_id:ChIJX1JzgCwJK4cRXiwM8t2sf_0&key=AIzaSyCE5wo8okWT45c9Gfw5dy6Bi0-TSxnls30" allowfullscreen></iframe>
+        </div>
     </div>
 {% endblock %}
 

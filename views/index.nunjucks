@@ -8,5 +8,23 @@ onmouseout="this.src='/images/btn_google_signin_dark_normal_web.png'" onclick="t
 
 {% block jumbotron %}
     <h1>Google Dashboard</h1>
-    <p>Simple dashboard showing basic Google services, using Google's API.</p>
+    <p>Simple dashboard showing basic Google services, using the following Google's APIs:</p>
+{% endblock %}
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Maps</h2>
+            <p>Find your way to Reztech or any other location using an embedded map view utilizing Google's Maps API</p>
+        </div>
+        <div class="col-md-4">
+            <h2>URL Shortener</h2>
+            <p>Shorten lengthy or hard to remember URLs to something much easier to work with using Google's URL Shortener API</p>
+       </div>
+       <div class="col-md-4">
+           <h2>Translate</h2>
+           <p>Translate to/from a variety of languages using Google's Translate API</p>
+       </div>
+    </div>
 {% endblock %}
